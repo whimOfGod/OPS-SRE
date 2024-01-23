@@ -783,6 +783,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     Title: Attribute.String;
     Body: Attribute.Blocks;
     Image: Attribute.Media;
+    categories: Attribute.Relation<
+      'api::article.article',
+      'manyToMany',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -815,6 +820,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String;
     Description: Attribute.Blocks;
+    articles: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
