@@ -29,7 +29,7 @@ services:
     ports:
       - "1337:1337"
     networks:
-      - strapi-network
+      - strapi
     depends_on:
       - strapi-database
 
@@ -48,14 +48,21 @@ services:
     ports:
       - "5433:5432"
     networks:
-      - strapi-network
+      - strapi
+
 
   prometheus:
-    image: prom/prometheus
-    volumes:
-      - D:/CFA-INSTA-COURS/CODE/DEVOPSCRV/prometheus-2.49.1:/etc/prometheus
-    ports:
-      - '9090:9090'
+      image: prom/prometheus
+      volumes:
+        - D:/CFA-INSTA-COURS/CODE/DEVOPSCRV/prometheus-2.49.1:/etc/prometheus
+      command:
+        - "--config.file=/etc/prometheus/prometheus.yml"
+      ports:
+        - '9090:9090'
+      networks:
+        - strapi
+      depends_on:
+        - strapi-services
 
   grafana:
     image: grafana/grafana
@@ -65,11 +72,13 @@ services:
       - '3001:3000'
     depends_on:
       - prometheus
+    networks:
+      - strapi
 
 volumes:
   strapi-data:
 
 networks:
-  strapi-network:
-    name: strapi-network
+  strapi:
+    name: strapi
     driver: bridge
