@@ -2,8 +2,8 @@ version: "3"
 
 # https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/deployment/hosting-guides/docker.html#_1-create-a-docker-composeyml-file
 services:
-  strapi-services:
-    container_name: strapi-services
+  strapi:
+    container_name: strapi
     build: .
     image: strapi:latest
     restart: unless-stopped
@@ -62,7 +62,7 @@ services:
       networks:
         - strapi
       depends_on:
-        - strapi-services
+        - strapi
 
   grafana:
     image: grafana/grafana

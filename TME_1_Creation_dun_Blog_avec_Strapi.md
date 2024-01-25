@@ -40,54 +40,7 @@ Créer un blog avec Strapi implique plusieurs étapes, allant de la configuratio
 1. **Accéder au Constructeur de Types de Contenu** :
    - Dans le panneau d'administration de Strapi, cliquez sur "Content-Types Builder" dans le menu de gauche.
 
-2. **Créer un Nouveau Type de Collection** :
-   - Cliquez sur le bouton “Create new collection type”.
-
-3. **Nommer le Type de Collection** :
-   - Saisissez le nom pour votre type de collection, par exemple, `Article`. Cliquez sur `Continue`.
-
-4. **Ajouter des Champs au Type de Collection** :
-   - Cliquez sur “Add another field” et choisissez les types de champs appropriés pour votre blog. Voici quelques champs courants pour un article de blog :
-     - **Title** : Choisir 'Text' comme type de champ pour le titre de l'article.
-     - **Body** : Sélectionnez 'Rich Text' pour le corps de l'article, où vous pouvez ajouter du texte formaté, des images, etc.
-     - **Image** : Optez pour 'Media' pour permettre l'ajout d'images à l'article.
-     - **PublishedAt** : Choisissez 'Date' pour indiquer la date de publication.
-   - Configurez chaque champ selon vos besoins (par exemple, en le rendant obligatoire, en limitant la longueur du texte, etc.).
-   - Cliquez sur `Finish` pour chaque champ, puis sur `Save` en haut à droite une fois tous les champs ajoutés.
-
-#### 3.2 (Optionnel) Créer un Type de Contenu pour les Catégories
-1. **Créer un Autre Type de Collection** :
-   - Répétez les étapes 2 et 3 pour créer un type de collection nommé `Category`.
-
-2. **Ajouter des Champs pour les Catégories** :
-   - Ajoutez des champs tels que `Name` (Text) pour le nom de la catégorie et `Description` (Rich Text) pour une description optionnelle.
-   - Configurez et sauvegardez les champs.
-
-3. **Établir une Relation entre Articles et Catégories** :
-   - Retournez au type de collection `Article`.
-   - Ajoutez un nouveau champ, et choisissez `Relation` comme type de champ.
-   - Configurez la relation pour lier les articles aux catégories. Par exemple, une relation “many-to-many” permet à chaque article d'être lié à plusieurs catégories et vice versa.
-   - Sauvegardez la configuration.
-
-### Étape 4 : Configuration des Permissions
-
-#### 4.1 Accéder aux Paramètres de Permissions
-1. **Ouvrir les Paramètres de Strapi** :
-   - Dans le panneau d'administration de Strapi, cliquez sur “Settings” situé dans le menu latéral en bas à gauche.
-
-2. **Naviguer vers les Utilisateurs et Permissions** :
-   - Dans la section “Settings”, recherchez et cliquez sur “Users & Permissions plugin”. Cela ouvre la page de configuration des rôles et permissions.
-
-#### 4.2 Configurer les Permissions pour le Rôle Public
-3. **Sélectionner le Rôle Public** :
-   - Dans l'onglet “Roles”, vous verrez une liste de rôles. Cliquez sur le rôle “Public” pour configurer les permissions accessibles à tous les utilisateurs non authentifiés.
-
-4. **Configurer les Permissions pour les Articles et Catégories** :
-   - Dans la page de configuration du rôle “Public”, faites défiler jusqu'à la section où vos types de contenu (par exemple, “Articles”, “Categories”) sont listés.
-   - Pour chaque type de contenu (comme “Articles”), configurez les permissions en cochant les cases correspondant aux actions que vous souhaitez autoriser pour le public. Les options courantes incluent :
-     - `find` : Permet au public de voir la liste des entrées (par exemple, tous les articles du blog).
-     - `findOne` : Permet au public de voir une seule entrée spécifique (par exemple, un seul article de blog).
-   - Faites de même pour les “Categories” si vous souhaitez que le public puisse voir les catégories.
+2. 
 
 #### 4.3 Sauvegarder les Modifications
 5. **Enregistrer les Paramètres de Permissions** :
