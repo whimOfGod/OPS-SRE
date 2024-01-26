@@ -4,7 +4,7 @@
 API_URL="http://localhost:1337/api" 
 
 # Nombre total de requêtes à envoyer
-TOTAL_REQUESTS=10
+TOTAL_REQUESTS=1000
 
 # Fonction pour effectuer une requête HTTP avec curl
 make_request() {
@@ -25,10 +25,10 @@ for ((i = 1; i <= TOTAL_REQUESTS; i++)); do
   # Création d'un nouvel article
   make_request "articles" "POST" '{"Title": "Nouvel article", "Body": "Contenu de l'\''article"}'
 
-  # Mise à jour du premier article (assurez-vous qu'il existe)
+  # Mise à jour du premier article (s'assurer que cela existe)
   make_request "articles/1" "PUT" '{"Body": "Contenu mis à jour"}'
 
-  # Suppression du premier article (assurez-vous qu'il existe)
+  # Suppression du premier article (s'assurer que cela existe)
   make_request "articles/1" "DELETE"
 
   # Lecture des catégories

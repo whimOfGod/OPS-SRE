@@ -32,6 +32,29 @@ services:
       - strapi
     depends_on:
       - strapi-database
+# configuration du déploiement
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1G
+        reservations:
+          memory: 512M    
+#    deploy:
+#     replicas: 3  # Nombre d'instances souhaitées
+#      resources:
+#        limits:
+#          cpus: "2"  # Limite de CPU par instance
+#          memory: 512M  # Limite de mémoire par instance
+#      placement:
+#        constraints:
+#          - node.role == worker  # Contrainte pour déployer uniquement sur des nœuds ouvriers
+        # commande de déploiement
+        # docker stack deploy -c docker-compose.yml mystack
+        # commande de mise à jour
+        # docker stack deploy -c docker-compose.yml mystack
+        # commande de suppression
+        # docker stack rm mystack  
 
   strapi-database:
     container_name: strapi_database
